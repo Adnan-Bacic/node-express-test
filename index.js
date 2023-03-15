@@ -33,5 +33,5 @@ app.use('/api/members', require('./routes/api/members'));
 const PORT = process.env.PORT || 5000; //variable for the port
 
 app.listen(PORT, () => {
-    console.log(`Server port: ${PORT} http://localhost:5000/`)
+    console.log(`Server port: ${PORT} - http://localhost:${PORT}/`)
 });
