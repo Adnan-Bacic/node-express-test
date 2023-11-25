@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
 //gets single member
 router.get('/:id', (req, res) => {
     const found = members.some(member => member.id === parseInt(req.params.id));
-    //console.log({found})
 
     //return data if found, else return a message
     if(found === false){
@@ -40,7 +39,6 @@ router.post('/', (req, res) => {
     const emailTaken = members.some((member) => {
         return member.email === newMembner.email
     })
-    console.log({emailTaken})
 
     if(emailTaken === true){
         res.status(400).json({ msg: 'email already in use' });
