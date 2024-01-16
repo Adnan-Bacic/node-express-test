@@ -19,7 +19,9 @@ router.get('/:id', (req, res) => {
         return
     }
 
-    res.json(members.filter(member => member.id === parseInt(req.params.id)));
+    const memberById = members.filter(member => member.id === parseInt(req.params.id))
+
+    res.json(memberById);
 });
 
 //create member
@@ -69,7 +71,12 @@ router.put('/:id', (req, res) => {
             member.name = updateMember.name ? updateMember.name : member.name;
             member.email = updateMember.email ? updateMember.email : member.email;
 
-            res.json({msg: 'member updated', member })
+            const updatedMembers = {
+                msg: 'member updated',
+                member: member
+            }
+
+            res.json(updatedMembers)
         }
     });
 });
@@ -83,9 +90,11 @@ router.delete('/:id', (req, res) => {
         return
     }
 
+    const membersAfterDeletion = members.filter(member => member.id !== parseInt(req.params.id))
+
     res.json({
         msg: 'member deleted',
-        members: members.filter(member => member.id !== parseInt(req.params.id))
+        members: membersAfterDeletion
     });
 
 });
