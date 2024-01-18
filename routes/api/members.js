@@ -11,10 +11,10 @@ router.get('/', (req, res) => {
 
 //gets single member
 router.get('/:id', (req, res) => {
-    const found = members.some(member => member.id === parseInt(req.params.id));
+    const memberIsFoundById = members.some(member => member.id === parseInt(req.params.id));
 
     //return data if found, else return a message
-    if(found === false){
+    if (memberIsFoundById === false){
         res.status(400).json({ msg: `No member with the id of ${req.params.id} found` })
         return
     }
@@ -57,9 +57,9 @@ router.post('/', (req, res) => {
 
 //update member
 router.put('/:id', (req, res) => {
-    const found = members.some(member => member.id === parseInt(req.params.id));
+    const memberIsFoundById = members.some(member => member.id === parseInt(req.params.id));
 
-    if(found === false){
+    if (memberIsFoundById === false){
         res.status(400).json({ msg: `No member with the id of ${req.params.id} found` })
         return
     }
@@ -83,9 +83,9 @@ router.put('/:id', (req, res) => {
 
 //delete member
 router.delete('/:id', (req, res) => {
-    const found = members.some(member => member.id === parseInt(req.params.id));
+    const memberIsFoundById = members.some(member => member.id === parseInt(req.params.id));
 
-    if(found === false){
+    if (memberIsFoundById === false){
         res.status(400).json({ msg: `No member with the id of ${req.params.id} found` })
         return
     }
