@@ -8,9 +8,6 @@
     "start": "node index",
     "dev": "nodemon index"
   },
-  "keywords": [
-    "expressJS"
-  ],
   "author": "Adnan Bacic",
   "license": "ISC",
   "dependencies": {
